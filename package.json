@@ -1,0 +1,26 @@
+{
+  "name": "eleventy-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \" eleventy --watch\" \"serve build\"",
+    "build": " eleventy build",
+    "serve": "http-server build --port 3000 -b --ssl --key certs/key.pem --cert certs/cert.pem -c-1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.1.1",
+    "concurrently": "^7.0.0",
+    "prettier": "^2.5.1",
+    "prettier-config-halo-lab": "^1.0.7",
+    "serve": "^13.0.2"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "eleventy-plugin-styles": "^1.4.1",
+    "sass": "^1.49.4"
+  }
+}

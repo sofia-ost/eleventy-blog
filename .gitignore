@@ -1,0 +1,46 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# editors
+.idea
+.vscode
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# production
+# all except images directory
+build/**/*.html
+build/**/*.css
+build/**/*.js
+build/**/*.js.map
+build/**/*.br
+build/**/*.woff
+build/**/*.woff2
+build/*.png
+build/*.json
+build/*.svg
+build/*.txt
+build/*.xml
+# SVGs are ignored temporarily
+build/images/**/*.svg
+
+# misc
+.DS_Store
+.cache
+certs
+*.env
+.env.*
+*.swp
+
+# Do not track generated favicons
+src/**/favicons
+wp-content/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
