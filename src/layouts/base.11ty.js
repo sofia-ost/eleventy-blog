@@ -1,4 +1,9 @@
-module.exports.render = async function pwa({ lang = "en", styles, content }) {
+module.exports.render = async function pwa({
+  lang = "en",
+  styles,
+  content,
+  scripts,
+}) {
   return /* html */ `
         <!doctype html>
         <html lang="${lang}">
@@ -12,7 +17,8 @@ module.exports.render = async function pwa({ lang = "en", styles, content }) {
         </head>
         <body>
             ${content}
-            ${styles}
+
+            <script type="module" src="${scripts}"></script>
         </body>
         </html>
     `;
