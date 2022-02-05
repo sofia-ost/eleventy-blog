@@ -1,3 +1,18 @@
-body {
-  background-color: red;
+@use "../../common";
+
+.posts-list {
+  display: grid;
+  grid-row-gap: 50px;
+  grid-column-gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+}
+
+.post-link {
+  color: #fff;
+  text-decoration: initial;
 }

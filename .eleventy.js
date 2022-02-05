@@ -2,8 +2,10 @@ const { styles } = require("eleventy-plugin-styles");
 const { scripts } = require("eleventy-plugin-scripts");
 const htmlmin = require("html-minifier");
 const Image = require("@11ty/eleventy-img");
+const markdownIt = require("markdown-it");
+const markdownItAttrs = require("markdown-it-attrs");
 
-async function imageShortcode(src, alt) {
+async function imageShortcode(src, { alt, classes }) {
   let metadata = await Image(src, {
     widths: [null],
     urlPath: "/images/",
@@ -13,6 +15,7 @@ async function imageShortcode(src, alt) {
 
   let imageAttributes = {
     alt,
+    class: classes,
     loading: "lazy",
     decoding: "async",
   };
@@ -43,7 +46,9 @@ module.exports = function (config) {
     return content;
   });
 
-  config.addJavaScriptFunction("image", imageShortcode);
+  config.addShortcode("image", imageShortcode);
+
+  config.setLibrary("md", markdownIt({ html: true }).use(markdownItAttrs));
 
   return {
     dir: {
