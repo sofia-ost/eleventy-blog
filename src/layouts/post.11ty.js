@@ -1,7 +1,18 @@
-module.exports.render = async function (data) {
+const header = require("../components/header.11ty");
+
+module.exports.data = {
+  layout: "base",
+};
+
+module.exports.render = async function ({ content }) {
   return /* html */ `
-        <section class="article">
-            ${data.content}
-        </section>
+    ${await header.call(this)}
+        <main class="main">
+            <section class="article">
+                <div class="container">
+                    ${content}
+                </div>
+            </section>
+        </main>
     `;
 };

@@ -26,6 +26,7 @@ async function imageShortcode(src, { alt, classes }) {
 
 module.exports = function (config) {
   config.addPlugin(styles, {
+    inputDirectory: "src/styles",
     publicDirectory: "styles",
   });
 

@@ -1,5 +1,9 @@
 @use "../../common";
 
+.blog-section {
+  background-color: #e4e6ec;
+}
+
 .posts-list {
   display: grid;
   grid-row-gap: 80px;

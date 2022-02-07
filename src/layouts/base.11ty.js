@@ -5,8 +5,8 @@ module.exports.render = async function pwa({
   scripts,
 }) {
   return /* html */ `
-        <!doctype html>
-        <html lang="${lang}">
+      <!doctype html>
+      <html lang="${lang}">
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,6 @@ module.exports.render = async function pwa({
 
             <script type="module" src="${scripts}"></script>
         </body>
-        </html>
+      </html>
     `;
 };

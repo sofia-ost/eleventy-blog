@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \" eleventy --watch\" \"serve build\"",
-    "build": " eleventy build",
+    "build": "eleventy build",
     "serve": "http-server build --port 3000 -b --ssl --key certs/key.pem --cert certs/cert.pem -c-1"
   },
   "keywords": [],
