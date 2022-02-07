@@ -12,11 +12,15 @@ a {
 
 .container {
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1280px;
 }
 
 main {
-  color: #fff;
-  padding: 60px initial;
-  background-color: #343333;
+  color: #131313;
+  padding: 0.67em initial;
+  background-color: #e4e6ec;
+}
+
+.title-1 {
+  font-size: 75px;
 }
