@@ -11,9 +11,20 @@ scripts:
 layout: post
 ---
 
+<span class="publication-date">Published {{ post.date | asPostDate }}</span>
+
 # {{ post.title }}{.post-title}
 
-![{{ post.title }}]({{ post.image }}){.post-banner}
+<!-- prettier-ignore -->
+{% capture props %}
+{
+"alt": "{{ post.title }}",
+"classes": "lazyload post-banner",
+"lazy":true
+}
+{% endcapture %}
+{% assign props = props | parseJSON %}
+{% image post.image, props %}
 
 <div class="content">
 

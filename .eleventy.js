@@ -25,6 +25,8 @@ async function imageShortcode(src, { alt, classes }) {
 }
 
 module.exports = function (config) {
+  config.setLibrary("md", markdownIt({ html: true }).use(markdownItAttrs));
+
   config.addPlugin(styles, {
     inputDirectory: "src/styles",
     publicDirectory: "styles",
@@ -49,7 +51,18 @@ module.exports = function (config) {
 
   config.addShortcode("image", imageShortcode);
 
-  config.setLibrary("md", markdownIt({ html: true }).use(markdownItAttrs));
+  config.addFilter("parseJSON", JSON.parse);
+
+  config.addFilter("asPostDate", (dateObj) => {
+    const newDate = new Date(dateObj);
+    const year = newDate.getFullYear();
+    const month = newDate.toLocaleString("en-US", {
+      month: "long",
+    });
+    const day = ("0" + newDate.getDate()).slice(-2);
+
+    return `${month} ${day}, ${year}`;
+  });
 
   return {
     dir: {

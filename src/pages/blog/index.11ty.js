@@ -16,7 +16,7 @@ module.exports = class {
     return /* html */ `
         ${await header.call(this)}
         <main>
-            ${await postsPreview.call(this, data.posts)}
+          ${await postsPreview.call(this, data.posts)}
         </main>
     `;
   }
