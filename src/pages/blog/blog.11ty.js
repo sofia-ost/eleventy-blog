@@ -1,5 +1,6 @@
 const header = require("../../components/header.11ty");
 const postsPreview = require("../../components/posts_preview.11ty");
+const pagination = require("./pagination");
 
 module.exports = class {
   data() {
@@ -8,7 +9,15 @@ module.exports = class {
       layout: "base",
       styles: "pages/blog/index.scss",
       scripts: "blog/index.js",
-      permalink: "index.html",
+      permalink: ({ pagination }) => {
+        return pagination.pageNumber === 0
+          ? "index.html"
+          : `${pagination.pageNumber + 1}/index.html`;
+      },
+      pagination: {
+        data: "posts",
+        size: "12",
+      },
     };
   }
 
@@ -16,7 +25,8 @@ module.exports = class {
     return /* html */ `
         ${await header.call(this)}
         <main>
-          ${await postsPreview.call(this, data.posts)}
+          ${await postsPreview.call(this, data.pagination.items)}
+          ${await pagination.call(this, data.pagination)}
         </main>
     `;
   }

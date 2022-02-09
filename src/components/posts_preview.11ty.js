@@ -16,7 +16,7 @@ module.exports = async function (data) {
                 const day = ("0" + newDate.getDate()).slice(-2);
 
                 return /* html */ `
-                <div class="blog/post-card">
+                <div class="post-card">
                   <a href="blog/${postLink}" class="post-image-wrapper">
                     ${await this.image(image, {
                       alt: "post preview image",

@@ -1,10 +1,13 @@
+@use "../partials/mixin";
+@use "../partials/color";
+
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: sans-serif;
-  background-color: #e4e6ec;
+  background-color: color.$solitude;
 }
 
 a {
@@ -13,14 +16,16 @@ a {
 
 .container {
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1300px;
+  padding: initial 10px;
 }
 
 main {
-  color: #131313;
+  color: color.$seal-brown;
   margin-bottom: 100px;
 }
 
 h1 {
-  font-size: 75px;
+  // font-size: 75px;
+  @include mixin.adaptiv-font(75, 24);
 }
